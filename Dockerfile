@@ -16,9 +16,15 @@ RUN pnpm build
 FROM node:22-alpine AS runner
 WORKDIR /app
 
+RUN corepack enable
+
 ENV HOST=0.0.0.0
 ENV PORT=4321
 ENV NODE_ENV=production
+
+# Install only production dependencies so server chunks can resolve peer deps (e.g. react)
+COPY --from=builder /app/package.json /app/pnpm-lock.yaml ./
+RUN pnpm install --prod --frozen-lockfile
 
 COPY --from=builder /app/dist ./dist
 
