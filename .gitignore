@@ -1,0 +1,20 @@
+# Build output
+dist/
+.output/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Astro
+.astro/
+
+# OS
+.DS_Store
+
+# Cloudflare
+.wrangler/
