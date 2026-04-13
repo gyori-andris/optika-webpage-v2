@@ -1,10 +1,15 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title: string;
   description?: string;
+  /** Set true for admin/API pages that skip header/footer */
+  bare?: boolean;
 }
 
-const { title, description = 'Nádor Optika – szemüveg, kontaktlencse, látásvizsgálat' } = Astro.props;
+const { title, description = 'Nádor Optika – szemüveg, kontaktlencse, látásvizsgálat', bare = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -55,6 +60,10 @@ const { title, description = 'Nádor Optika – szemüveg, kontaktlencse, látá
     }
   </style>
   <body>
-    <slot />
+    {!bare && <Header />}
+    <main id="main-content">
+      <slot />
+    </main>
+    {!bare && <Footer />}
   </body>
 </html>

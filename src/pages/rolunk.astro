@@ -1,0 +1,233 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Rólunk" description="A Nádor Optikáról – alapítás 2010-ben, László Magda Mária optometrista, Budapest belváros.">
+
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <nav class="breadcrumb" aria-label="Navigációs útvonal">
+        <a href="/">Főoldal</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Rólunk</span>
+      </nav>
+      <h1>Rólunk</h1>
+    </div>
+  </section>
+
+  <!-- Company story -->
+  <section class="about-section">
+    <div class="container about-grid">
+      <div class="about-imgs">
+        <img
+          src="/images/elementor/diopter-selection-glasses-choice-eyesight-test-qec6554ow2gj41ywvq8qf8isbty45spe4xnkj8lyio.jpg"
+          alt="Szemüveg választás az optikában"
+          loading="lazy"
+          class="about-img about-img--main"
+        />
+        <img
+          src="/images/elementor/optometrist-looking-at-eye-chart-qec65arqrdxrqk8e0hzpzkwka8mrvi2i4p0vvyqy2o.jpg"
+          alt="Látásvizsgálat"
+          loading="lazy"
+          class="about-img about-img--secondary"
+        />
+      </div>
+
+      <div class="about-content">
+        <span class="about-eyebrow">Rólunk</span>
+        <h2 class="about-title">Nádor Optika – egy hely a jó látásért és az elegáns megjelenésért</h2>
+        <p>
+          A 2010-es alapításától kezdve a Nádor Optika a szűkebb környezetére fókuszálva,
+          de azon túl is nyúlva ajánlotta ügyfeleinek a beszállítók kínálatából gondosan összeválogatott termékeket.
+          Szolgáltatásait az egyedi igényekhez igazítja, hogy mindenki megtalálja a legmegfelelőbb megoldást.
+        </p>
+        <p>
+          Az üzlet Budapest belvárosában található, pár perc sétára a Parlamenttől vagy a Bazilikától,
+          az Arany János utcában. Központi elhelyezkedésének köszönhetően könnyen elérhető.
+        </p>
+        <p>Szeretettel várjuk.</p>
+        <a href="/szolgaltatasok" class="btn--primary">Szolgáltatásaink</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Owner bio -->
+  <section class="owner-section">
+    <div class="container owner-grid">
+      <div class="owner-content">
+        <h2 class="owner-name">László Magda Mária</h2>
+        <p class="owner-role">Látszerész &amp; okleveles optometrista</p>
+        <p>
+          Végzettségemet tekintve látszerész és okleveles optometrista vagyok.
+          Életpályám első, alkalmazotti szakasza kiváló lehetőséget biztosított széleskörű tapasztalatszerzésre
+          a szakterületen, amelyet aztán saját vállalkozásomban tudtam kamatoztatni.
+        </p>
+        <p>
+          Márkánk egy családi vállalkozásként működő magyar optikai szaküzlet a főváros közepén.
+          Fő értékesítési szempontunk, hogy a vásárlót helyezzük előtérbe, jobban, mint bármelyik
+          általunk ismert üzlet. Ezt az elvet minden egyes ügyféltalálkozón érvényesítjük.
+        </p>
+      </div>
+      <div class="owner-img-wrap">
+        <img
+          src="/images/uploads/10/1696621385724_lBXxAHKSxTM2s2K4.jpg"
+          alt="László Magda Mária"
+          loading="lazy"
+          class="owner-img"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container cta-strip__inner">
+      <div>
+        <h2 class="cta-strip__title">Foglaljon időpontot!</h2>
+        <p class="cta-strip__sub">Keressen bátran – rendelkezésére állunk!</p>
+      </div>
+      <div class="cta-strip__actions">
+        <a href="tel:+36308582400" class="btn--white">+36 30 858 2400</a>
+        <a href="/kapcsolat" class="btn--white-outline">Kapcsolati űrlap</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    background: color-mix(in srgb, var(--color-primary) 6%, white);
+    border-bottom: 1px solid var(--color-light);
+    padding-block: var(--space-12);
+  }
+  .page-hero__inner h1 { margin: var(--space-2) 0 0; }
+  .breadcrumb {
+    display: flex; align-items: center; gap: var(--space-2);
+    font-size: var(--text-small); color: var(--color-text);
+  }
+  .breadcrumb a { color: var(--color-primary); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* About section */
+  .about-section { padding-block: var(--space-16); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+  .about-imgs {
+    position: relative;
+    height: 400px;
+  }
+  .about-img {
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    box-shadow: var(--shadow-card);
+  }
+  .about-img--main {
+    position: absolute;
+    top: 0; left: 0;
+    width: 75%; height: 85%;
+    z-index: 1;
+  }
+  .about-img--secondary {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 55%; height: 55%;
+    z-index: 2;
+    border: 4px solid var(--color-white);
+  }
+  .about-eyebrow {
+    display: block;
+    font-size: var(--text-small);
+    font-weight: var(--weight-semibold);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-3);
+  }
+  .about-title { font-size: 1.5rem; margin: 0 0 var(--space-6); }
+  .about-content p { margin: 0 0 var(--space-4); line-height: 1.8; }
+
+  .btn--primary {
+    display: inline-flex; align-items: center;
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    margin-top: var(--space-2);
+  }
+  .btn--primary:hover {
+    background: color-mix(in srgb, var(--color-secondary) 85%, black);
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+
+  /* Owner */
+  .owner-section {
+    padding-block: var(--space-16);
+    background: color-mix(in srgb, var(--color-primary) 4%, white);
+  }
+  .owner-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-12);
+    align-items: center;
+  }
+  .owner-name { margin: 0 0 var(--space-1); }
+  .owner-role {
+    font-size: var(--text-small);
+    font-weight: var(--weight-medium);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 var(--space-6);
+  }
+  .owner-content p { margin: 0 0 var(--space-4); line-height: 1.8; }
+  .owner-img-wrap { flex-shrink: 0; }
+  .owner-img {
+    width: 280px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    display: block;
+  }
+
+  /* CTA strip */
+  .cta-strip { background: var(--color-secondary); color: var(--color-white); padding-block: var(--space-12); }
+  .cta-strip__inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-8); flex-wrap: wrap;
+  }
+  .cta-strip__title { color: var(--color-white); font-size: 1.5rem; margin: 0 0 var(--space-1); }
+  .cta-strip__sub { margin: 0; color: rgba(255,255,255,0.8); font-size: var(--text-small); }
+  .cta-strip__actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .btn--white {
+    display: inline-flex; align-items: center;
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-white); color: var(--color-secondary);
+    border-radius: var(--radius-sm); font-weight: var(--weight-semibold);
+    text-decoration: none; transition: background var(--transition-fast);
+  }
+  .btn--white:hover { background: rgba(255,255,255,0.9); color: var(--color-secondary); }
+  .btn--white-outline {
+    display: inline-flex; align-items: center;
+    padding: var(--space-3) var(--space-6);
+    border: 2px solid rgba(255,255,255,0.7); color: var(--color-white);
+    border-radius: var(--radius-sm); font-weight: var(--weight-semibold);
+    text-decoration: none; transition: background var(--transition-fast);
+  }
+  .btn--white-outline:hover { background: rgba(255,255,255,0.1); color: var(--color-white); }
+
+  @media (max-width: 768px) {
+    .about-grid, .owner-grid { grid-template-columns: 1fr; }
+    .about-imgs { height: 280px; }
+    .owner-img { width: 100%; height: 300px; }
+  }
+</style>

@@ -1,0 +1,173 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/szolgaltatasok', label: 'Szolgáltatások' },
+  { href: '/rolunk',         label: 'Rólunk' },
+];
+---
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a href="/" class="site-logo" aria-label="Nádor Optika – Főoldal">
+        Nádor Optika
+      </a>
+
+      <div class="topbar__contacts">
+        <a href="tel:+36308582400" class="topbar__contact-item">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          <span>+36 30 858 2400</span>
+        </a>
+        <a href="mailto:nadoroptika@gmail.com" class="topbar__contact-item">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,12 2,6"/>
+          </svg>
+          <span>nadoroptika@gmail.com</span>
+        </a>
+        <a href="/kapcsolat" class="btn btn--primary">Kapcsolat</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav" aria-label="Főnavigáció">
+    <div class="container main-nav__inner">
+      <ul class="main-nav__list">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['main-nav__link', { 'main-nav__link--active': currentPath.startsWith(link.href) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-white);
+    box-shadow: var(--shadow-nav);
+  }
+
+  .topbar {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-light);
+  }
+
+  .topbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-block: var(--space-3);
+  }
+
+  .site-logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .topbar__contacts {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .topbar__contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-small);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .topbar__contact-item svg {
+    flex-shrink: 0;
+    color: var(--color-secondary);
+  }
+
+  .topbar__contact-item:hover {
+    color: var(--color-primary);
+  }
+
+  .btn--primary {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-small);
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .btn--primary:hover {
+    background: color-mix(in srgb, var(--color-secondary) 85%, black);
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+
+  .main-nav {
+    background: var(--color-white);
+  }
+
+  .main-nav__inner {
+    display: flex;
+    align-items: center;
+    padding-block: 0;
+  }
+
+  .main-nav__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .main-nav__link {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.9rem;
+    font-weight: var(--weight-medium);
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .main-nav__link:hover,
+  .main-nav__link--active {
+    color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
+  }
+
+  @media (max-width: 640px) {
+    .topbar__contact-item span { display: none; }
+    .topbar__contact-item svg { width: 20px; height: 20px; }
+    .topbar__contacts { gap: var(--space-3); }
+  }
+</style>

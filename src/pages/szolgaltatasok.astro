@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    title: 'Személyre szabott szemüvegkészítés',
+    body: 'Távoli vagy olvasó szemüvegre, esetleg munka vagy multifokális szemüvegre van szükséged? Szeretnél fényre sötétedő, vagy clipon napszemüveg megoldást? Nálunk az ügyfél érdekei az elsők – akár szokatlan kéréssel is fordulhatsz hozzánk.\n\nHoyalux iD, Essilor Varilux, Zeiss vagy Rodenstock lencsék, hozzá való kerettel, professzionálisan felillesztve. Megszokási garanciánk garantálja első progresszív szemüveges vásárlóinknak, hogy amennyiben nem tudnak hozzászokni az új szemüvegükhöz, ingyen cseréljük a lencséket.',
+    img: '/images/uploads/10/diopter-selection-glasses-choice-eyesight-test.jpg',
+    imgAlt: 'Személyre szabott szemüvegkészítés',
+  },
+  {
+    title: 'Kontaktlencse és tisztító folyadék forgalmazás',
+    body: 'Igényeknek megfelelő kontaktlencsét kínálunk, a hozzá tartozó tisztító folyadékkal. Új felhasználóknak illesztés-betanítást biztosítunk, hogy az első viselés is kényelmes és biztonságos legyen.',
+    img: '/images/uploads/10/eyesight-test-optician-cabinet-vision-diagnostic.jpg',
+    imgAlt: 'Látásvizsgálat és kontaktlencse illesztés',
+  },
+  {
+    title: 'Szemüveg javítás és beállítás',
+    body: 'Boltunkban vagy műhelyükben a gazdaságosan javítható szemüvegek megjavítását vagy beállítását kínáljuk ügyfeleink részére. Ha a kerete meghajlott, a szár meglazult vagy a csavar kiesett – hozza be, megoldjuk.',
+    img: '/images/uploads/10/close-up-woman-hand-removing-eyeglasses-from-display.jpg',
+    imgAlt: 'Szemüveg javítás',
+  },
+  {
+    title: 'Helyszíni kiszállás intézményeknek',
+    body: 'Helyszíni kiszállással is biztosítani tudjuk intézményi vagy céges alkalmazottak képernyő előtti munkaszemüveggel történő ellátását. A munkáltató által finanszírozott szemüvegkészítésben is tudunk segíteni a munka törvénykönyve alapján.',
+    img: '/images/uploads/10/female-oculist-examining-kid-eyes-with-trial-frame-and-lenses.jpg',
+    imgAlt: 'Kiszállás intézményeknek',
+  },
+];
+
+const partners = [
+  'Hoyalux iD',
+  'Essilor Varilux',
+  'Zeiss',
+  'Rodenstock',
+];
+---
+
+<Layout title="Szolgáltatások" description="Személyre szabott szemüvegkészítés, kontaktlencse, javítás és helyszíni kiszállás – Nádor Optika, Budapest.">
+
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <nav class="breadcrumb" aria-label="Navigációs útvonal">
+        <a href="/">Főoldal</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Szolgáltatások</span>
+      </nav>
+      <h1>Szolgáltatások</h1>
+      <p>Szemüveg, ami illik hozzád – látási igényednek és stílusodnak megfelelő</p>
+    </div>
+  </section>
+
+  <!-- USPs -->
+  <section class="usps">
+    <div class="container usps__grid">
+      {[
+        ['Személyre szabottan', 'Minden ügyfél egyedi igényeire figyelünk.'],
+        ['Magas szakmai színvonalon', 'Okleveles optometrista, 15+ éves tapasztalattal.'],
+        ['Jó ár-érték arány', 'Pénztárcabarát megoldások, kompromisszumok nélkül.'],
+        ['Könnyen megközelíthető', 'Budapest belváros, pár percre a Parlamenttől.'],
+      ].map(([title, desc]) => (
+        <div class="usp">
+          <div class="usp__dot"></div>
+          <h3 class="usp__title">{title}</h3>
+          <p class="usp__desc">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Services list -->
+  <section class="services-detail">
+    <div class="container">
+      {services.map((svc, i) => (
+        <article class:list={['service-detail', { 'service-detail--reverse': i % 2 === 1 }]}>
+          <div class="service-detail__img-wrap">
+            <img
+              src={svc.img}
+              alt={svc.imgAlt}
+              loading="lazy"
+              width="600" height="400"
+            />
+          </div>
+          <div class="service-detail__content">
+            <h2 class="service-detail__title">{svc.title}</h2>
+            {svc.body.split('\n\n').map(para => <p>{para}</p>)}
+            <a href="/kapcsolat" class="btn--primary">Időpontot foglalok</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="partners">
+    <div class="container">
+      <h2 class="section-title">Partnereink</h2>
+      <div class="partners__list">
+        {partners.map(p => <span class="partner-badge">{p}</span>)}
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    background: color-mix(in srgb, var(--color-primary) 6%, white);
+    border-bottom: 1px solid var(--color-light);
+    padding-block: var(--space-12);
+  }
+  .page-hero__inner h1 { margin: var(--space-2) 0 var(--space-3); }
+  .page-hero__inner p { color: var(--color-text); margin: 0; }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-small);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+  .breadcrumb a { color: var(--color-primary); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* USPs */
+  .usps { padding-block: var(--space-12); background: var(--color-white); }
+  .usps__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+  }
+  .usp { display: flex; flex-direction: column; gap: var(--space-2); }
+  .usp__dot {
+    width: 12px; height: 12px;
+    background: var(--color-secondary);
+    border-radius: 50%;
+  }
+  .usp__title { font-size: 1rem; font-weight: var(--weight-semibold); margin: 0; color: var(--color-primary); }
+  .usp__desc { font-size: var(--text-small); margin: 0; }
+
+  /* Service detail rows */
+  .services-detail { padding-block: var(--space-16); }
+  .service-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+    margin-bottom: var(--space-16);
+  }
+  .service-detail:last-child { margin-bottom: 0; }
+  .service-detail--reverse .service-detail__img-wrap { order: 2; }
+  .service-detail--reverse .service-detail__content { order: 1; }
+
+  .service-detail__img-wrap {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+  .service-detail__img-wrap img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .service-detail__title {
+    font-size: 1.5rem;
+    margin: 0 0 var(--space-4);
+  }
+  .service-detail__content p {
+    margin: 0 0 var(--space-4);
+    line-height: 1.8;
+  }
+
+  .btn--primary {
+    display: inline-flex; align-items: center;
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    margin-top: var(--space-2);
+  }
+  .btn--primary:hover {
+    background: color-mix(in srgb, var(--color-secondary) 85%, black);
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+
+  /* Partners */
+  .partners { padding-block: var(--space-12); background: var(--color-light); }
+  .partners .section-title { margin-bottom: var(--space-8); }
+  .partners__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+  }
+  .partner-badge {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-white);
+    border: 1px solid rgba(42,54,122,0.15);
+    border-radius: var(--radius-md);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    font-size: var(--text-small);
+    box-shadow: var(--shadow-card);
+  }
+
+  @media (max-width: 768px) {
+    .service-detail {
+      grid-template-columns: 1fr;
+    }
+    .service-detail--reverse .service-detail__img-wrap { order: 0; }
+    .service-detail--reverse .service-detail__content { order: 0; }
+  }
+</style>

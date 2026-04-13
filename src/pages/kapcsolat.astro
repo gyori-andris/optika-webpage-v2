@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/Layout.astro';
+export const prerender = false;
+---
+
+<Layout title="Kapcsolat" description="Lépjen kapcsolatba a Nádor Optikával – időpontfoglalás, telefonos elérhetőség, helyszín Budapest belvárosában.">
+
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <nav class="breadcrumb" aria-label="Navigációs útvonal">
+        <a href="/">Főoldal</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Kapcsolat</span>
+      </nav>
+      <h1>Kapcsolat</h1>
+      <p>Időpontot foglalna vagy kérdése van? Írjon vagy hívjon, keressen bátran!</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container contact-grid">
+
+      <!-- Left: map + info -->
+      <div class="contact-info">
+        <div class="map-embed">
+          <iframe
+            title="Nádor Optika térképen"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.3!2d19.0502!3d47.5069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc3a2d90cb09%3A0x6deeaec29e14af1b!2sNádor%20Optika!5e0!3m2!1shu!2shu!4v1"
+            width="100%"
+            height="300"
+            style="border:0; border-radius: var(--radius-lg);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Cím</h3>
+              <p>1051 Budapest, Arany János utca 16.<br/>(udvarban, a műemlék épület kapuján belépve)</p>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Telefon</h3>
+              <p><a href="tel:+36308582400">+36 30 858 2400</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,12 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <h3>E-mail</h3>
+              <p><a href="mailto:nadoroptika@gmail.com">nadoroptika@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Nyitvatartás</h3>
+              <table class="hours-table">
+                <tr><td>Hétfő–Szerda</td><td>11:00–17:00</td></tr>
+                <tr><td>Csütörtök</td><td>11:00–18:00</td></tr>
+                <tr><td>Péntek</td><td>11:00–17:00</td></tr>
+                <tr><td>Hétvége</td><td>Zárva</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="contact-form-wrap">
+        <h2>Írjon nekünk</h2>
+        <p class="form-intro">Töltse ki az űrlapot és hamarosan felvesszük Önnel a kapcsolatot.</p>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Neve <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Kovács János" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="kovacs.janos@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Üzenete <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="5" required placeholder="Időpontot szeretnék foglalni..."></textarea>
+          </div>
+
+          <button type="submit" class="btn--submit" id="submit-btn">
+            <span class="btn-text">Üzenet küldése</span>
+            <span class="btn-spinner" aria-hidden="true" hidden></span>
+          </button>
+
+          <div id="form-feedback" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    background: color-mix(in srgb, var(--color-primary) 6%, white);
+    border-bottom: 1px solid var(--color-light);
+    padding-block: var(--space-12);
+  }
+  .page-hero__inner h1 { margin: var(--space-2) 0 var(--space-3); }
+  .page-hero__inner p { color: var(--color-text); margin: 0; }
+  .breadcrumb {
+    display: flex; align-items: center; gap: var(--space-2);
+    font-size: var(--text-small); color: var(--color-text);
+  }
+  .breadcrumb a { color: var(--color-primary); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* Contact layout */
+  .contact-section { padding-block: var(--space-16); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  /* Info side */
+  .map-embed { margin-bottom: var(--space-8); }
+  .contact-details { display: flex; flex-direction: column; gap: var(--space-6); }
+  .contact-detail-item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+  .contact-detail-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: color-mix(in srgb, var(--color-primary) 8%, white);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-primary);
+  }
+  .contact-detail-item h3 {
+    font-size: 0.875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    margin: 0 0 var(--space-1);
+  }
+  .contact-detail-item p { margin: 0; font-size: var(--text-small); line-height: 1.6; }
+  .contact-detail-item a { color: var(--color-primary); text-decoration: none; }
+  .contact-detail-item a:hover { color: var(--color-secondary); }
+  .hours-table { border-collapse: collapse; font-size: var(--text-small); }
+  .hours-table td { padding: 2px 12px 2px 0; }
+  .hours-table td:first-child { color: var(--color-text); }
+  .hours-table td:last-child { font-weight: var(--weight-medium); color: var(--color-primary); }
+
+  /* Form side */
+  .contact-form-wrap {
+    background: var(--color-white);
+    border: 1px solid var(--color-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-card);
+  }
+  .contact-form-wrap h2 { margin: 0 0 var(--space-2); }
+  .form-intro { color: var(--color-text); font-size: var(--text-small); margin: 0 0 var(--space-6); }
+
+  .contact-form { display: flex; flex-direction: column; gap: var(--space-4); }
+  .form-group { display: flex; flex-direction: column; gap: var(--space-1); }
+  .form-group label {
+    font-size: var(--text-small);
+    font-weight: var(--weight-medium);
+    color: var(--color-primary);
+  }
+  .form-group label span { color: var(--color-secondary); }
+  .form-group input,
+  .form-group textarea {
+    padding: var(--space-3) var(--space-4);
+    border: 1.5px solid var(--color-light);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    color: var(--color-primary);
+    transition: border-color var(--transition-fast);
+    background: var(--color-white);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .btn--submit {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: var(--weight-semibold);
+    cursor: pointer;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    width: 100%;
+  }
+  .btn--submit:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-secondary) 85%, black);
+    transform: translateY(-1px);
+  }
+  .btn--submit:disabled { opacity: 0.65; cursor: not-allowed; }
+  .btn-spinner {
+    width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.35);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  #form-feedback {
+    font-size: var(--text-small);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    display: none;
+  }
+  #form-feedback.success {
+    display: block;
+    background: color-mix(in srgb, var(--color-accent) 12%, white);
+    border: 1px solid var(--color-accent);
+    color: color-mix(in srgb, var(--color-accent) 50%, black);
+  }
+  #form-feedback.error {
+    display: block;
+    background: color-mix(in srgb, var(--color-secondary) 8%, white);
+    border: 1px solid var(--color-secondary);
+    color: color-mix(in srgb, var(--color-secondary) 70%, black);
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const btn  = document.getElementById('submit-btn') as HTMLButtonElement;
+  const feedback = document.getElementById('form-feedback') as HTMLDivElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    (btn.querySelector('.btn-text') as HTMLElement).textContent = 'Küldés...';
+    (btn.querySelector('.btn-spinner') as HTMLElement).hidden = false;
+    feedback.className = '';
+    feedback.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const json = await res.json();
+
+      if (res.ok && json.ok) {
+        feedback.textContent = 'Köszönjük! Üzenetét megkaptuk, hamarosan felvesszük Önnel a kapcsolatot.';
+        feedback.className = 'success';
+        form.reset();
+      } else {
+        throw new Error(json.error || 'Ismeretlen hiba');
+      }
+    } catch (err: any) {
+      feedback.textContent = `Sajnos hiba történt: ${err.message}. Kérjük, hívjon minket: +36 30 858 2400`;
+      feedback.className = 'error';
+    } finally {
+      btn.disabled = false;
+      (btn.querySelector('.btn-text') as HTMLElement).textContent = 'Üzenet küldése';
+      (btn.querySelector('.btn-spinner') as HTMLElement).hidden = true;
+    }
+  });
+</script>

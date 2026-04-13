@@ -1,0 +1,240 @@
+---
+const hours = [
+  { days: 'Hétfő',    hours: '11:00–17:00' },
+  { days: 'Kedd',     hours: '11:00–17:00' },
+  { days: 'Szerda',   hours: '11:00–17:00' },
+  { days: 'Csütörtök',hours: '11:00–18:00' },
+  { days: 'Péntek',   hours: '11:00–17:00' },
+  { days: 'Szombat–Vasárnap', hours: 'Zárva' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer__grid">
+
+    <div class="footer__col">
+      <p class="footer__logo">Nádor Optika</p>
+      <p class="footer__tagline">
+        Márkánk egy családi vállalkozásként működő magyar optikai szaküzlet a főváros közepén.
+        Fő értékesítési szempontunk, hogy a vásárlót helyezzük előtérbe.
+      </p>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/nadoroptika" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Gyors linkek</h4>
+      <ul class="footer__links">
+        <li><a href="/">Főoldal</a></li>
+        <li><a href="/szolgaltatasok">Szolgáltatások</a></li>
+        <li><a href="/rolunk">Rólunk</a></li>
+        <li><a href="/kapcsolat">Kapcsolat</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Nyitvatartás</h4>
+      <ul class="footer__hours">
+        {hours.map(row => (
+          <li>
+            <span class="footer__day">{row.days}</span>
+            <span class="footer__time">{row.hours}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Időpont egyeztetés</h4>
+      <div class="footer__cta">
+        <a href="tel:+36308582400" class="footer__cta-item">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          <div>
+            <span class="footer__cta-label">Hívjon minket most</span>
+            <span class="footer__cta-value">+36 30 858 2400</span>
+          </div>
+        </a>
+        <a href="mailto:nadoroptika@gmail.com" class="footer__cta-item">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,12 2,6"/>
+          </svg>
+          <div>
+            <span class="footer__cta-label">Küldjön nekünk e-mailt</span>
+            <span class="footer__cta-value">nadoroptika@gmail.com</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>© {new Date().getFullYear()} Nádor Optika. Minden jog fenntartva.</p>
+      <p>1051 Budapest, Arany János utca 16. (udvarban)</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-primary);
+    color: rgba(255,255,255,0.75);
+    margin-top: var(--space-16);
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-8);
+    padding-block: var(--space-12);
+  }
+
+  .footer__logo {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-white);
+    margin: 0 0 var(--space-3);
+  }
+
+  .footer__tagline {
+    font-size: var(--text-small);
+    line-height: 1.7;
+    margin: 0 0 var(--space-4);
+  }
+
+  .footer__social {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .footer__social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    color: var(--color-white);
+    transition: background var(--transition-fast);
+  }
+
+  .footer__social a:hover {
+    background: var(--color-secondary);
+  }
+
+  .footer__heading {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 var(--space-4);
+  }
+
+  .footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer__links a {
+    font-size: var(--text-small);
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__links a:hover {
+    color: var(--color-white);
+  }
+
+  .footer__hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer__hours li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    font-size: var(--text-small);
+  }
+
+  .footer__day { color: rgba(255,255,255,0.65); }
+  .footer__time { color: var(--color-white); font-weight: var(--weight-medium); }
+
+  .footer__cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .footer__cta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    text-decoration: none;
+    color: rgba(255,255,255,0.85);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__cta-item:hover { color: var(--color-white); }
+
+  .footer__cta-item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-secondary);
+  }
+
+  .footer__cta-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .footer__cta-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .footer__cta-value {
+    font-size: var(--text-small);
+    font-weight: var(--weight-medium);
+    color: var(--color-white);
+  }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-block: var(--space-4);
+  }
+
+  .footer__bottom-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+  }
+</style>
