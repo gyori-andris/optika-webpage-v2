@@ -1,0 +1,61 @@
+/* Design tokens extracted from Elementor globals (post-30.css)
+   Source: /Users/andris/Documents/optika_webpage/wordpress/wp-content/uploads/elementor/css/post-30.css
+*/
+
+:root {
+  /* ── Colors ── */
+  --color-primary:   #2A367A; /* navy — headings, nav, CTA backgrounds */
+  --color-secondary: #FF002C; /* red — accent buttons, highlights */
+  --color-accent:    #05C18E; /* green — badges, success states */
+  --color-text:      #8A91AC; /* grey — body copy */
+  --color-light:     #E1E3EA; /* off-white — dividers, card backgrounds */
+  --color-white:     #FFFFFF;
+
+  /* ── Typography ── */
+  --font-heading: 'Inter', sans-serif;   /* h1–h3, UI labels */
+  --font-body:    'Heebo', sans-serif;   /* paragraphs, form fields */
+
+  /* ── Type scale ── */
+  --text-h1:      clamp(2rem, 5vw, 3.375rem); /* 54px max */
+  --text-h2:      clamp(1.5rem, 3vw, 2rem);   /* 32px max */
+  --text-accent:  1.125rem;                    /* 18px */
+  --text-body:    1rem;                        /* 16px */
+  --text-small:   0.875rem;                    /* 14px */
+
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --leading-tight:  1.15;
+  --leading-normal: 1.6;
+
+  /* ── Spacing ── */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-24: 6rem;      /* 96px */
+
+  /* ── Layout ── */
+  --container-max: 1200px;
+  --container-padding: var(--space-6);
+
+  /* ── Radii ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 4px 24px rgb(42 54 122 / 0.08);
+  --shadow-nav:  0 2px 12px rgb(42 54 122 / 0.10);
+
+  /* ── Transitions ── */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+}
