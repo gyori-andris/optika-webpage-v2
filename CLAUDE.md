@@ -12,12 +12,14 @@ The old WordPress site lives in `/Users/andris/Documents/optika_webpage/` and on
 | Layer | Choice |
 |-------|--------|
 | Framework | Astro 6 (static default, per-route SSR via `export const prerender = false`) |
-| Adapter | `@astrojs/cloudflare` — handles SSR routes as Cloudflare Workers |
+| Adapter | `@astrojs/node` (standalone) — runs as a Node.js HTTP server |
 | CMS | Keystatic (git-backed, GitHub OAuth) |
 | Styling | Plain CSS with design tokens in `src/styles/tokens.css` |
 | Contact form | `src/pages/api/contact.ts` — wire up Resend (API key via env var `RESEND_API_KEY`) |
 | Package manager | pnpm (`~/.local/bin/pnpm`) |
-| Deploy target | Cloudflare Pages, connected to `gyori-andris/optika-webpage-v2` on GitHub |
+| Deploy target | Podman + systemd in LXC CT 117 (next to WordPress), port 4321 |
+| Container image | `git.andris.boo/gyori-andris/optika-webpage-v2:latest` (Forgejo registry) |
+| CI/CD | Forgejo Actions (`.forgejo/workflows/docker.yaml`) — builds + pushes on push to main |
 
 ## Commands
 
@@ -80,8 +82,9 @@ Fonts: Inter (headings) · Heebo (body)
 | Services pages (6) | Pending |
 | About / Team page | Pending |
 | Contact page | Pending |
-| Cloudflare Pages deployment | Pending |
+| Podman + systemd deployment | Pending — needs CT 117 reachable + Forgejo CI configured |
 | Keystatic GitHub OAuth | Pending — needs OAuth app configured on github.com |
+| Forgejo `REGISTRY_TOKEN` secret | Pending — create token in Forgejo, add to repo secrets |
 
 ## Media migration (when ready)
 
